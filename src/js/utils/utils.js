@@ -42,6 +42,6 @@ fetchJsonp(LIVE_MATCHES_API)
 export const formatDate = (dateString) => {
   const currentDate = new Date().toISOString().slice(0,10);
   const liveEventDate = dateString.slice(0, 10);
-  const time = `${new Date(dateString).getHours()} : ${new Date(dateString).getMinutes()}`;
+  const time = dateString.slice(11, 16)
   return currentDate === liveEventDate ? `Today, ${time}` : `${liveEventDate}, ${time}`;
 };

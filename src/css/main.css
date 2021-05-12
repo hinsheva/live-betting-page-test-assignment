@@ -91,15 +91,15 @@ article aside img {
 .score {
     color: #deaf3b;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 22px;
 	margin: 0;
-	/* padding: 5px; */
 }
 .bet-button {
-    background-color: #3bae48;
+    background-color: #36a243;
     border: none;
     color: white;
 	font-weight: 600;
+	font-size: 14.5px;
     height: 32px;
     width: 105px;
 	border-radius: 4px;
@@ -113,6 +113,7 @@ article aside img {
 	color: #ccc;
 	padding: 10px;
 	font-weight: 600;
+	font-size: 13.5px;
 	color: rgb(121, 118, 118);
 }
 .team-container {
