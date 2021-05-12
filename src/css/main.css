@@ -89,19 +89,21 @@ article aside img {
 }
 
 .score {
-    color: #C7B03C;
+    color: #deaf3b;
     font-weight: 600;
     font-size: 20px;
-    margin: 0;
+	margin: 0;
+	/* padding: 5px; */
 }
 .bet-button {
-    background-color: #5CA747;
+    background-color: #3bae48;
     border: none;
     color: white;
-    font-size: 14px;
-    height: 30px;
-    width: 100px;
-    border-radius: 4px;
+	font-weight: 600;
+    height: 32px;
+    width: 105px;
+	border-radius: 4px;
+	margin: 5px;
 }
 .bet-button a {
 	color: inherit;
@@ -109,12 +111,18 @@ article aside img {
 }
 .date {
 	color: #ccc;
+	padding: 10px;
+	font-weight: 600;
+	color: rgb(121, 118, 118);
 }
 .team-container {
 	margin-top: 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-weight: 600;
+	font-size: 15px;
+	padding-top: 2px;
 }
 .team-container img {
 	display: inline;
