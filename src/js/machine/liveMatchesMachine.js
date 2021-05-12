@@ -6,7 +6,7 @@ export const liveMatchesMachine = createMachine({
   initial: 'fetchMatches',
   context: {
     liveEvents: [],
-    errors: '',
+    error: '',
   },
   states: {
     fetchMatches: {
@@ -14,15 +14,15 @@ export const liveMatchesMachine = createMachine({
         states: {
             loading: {
                   on: {
-                    CALLBACK: {
+                    LIVE_MATCHES_SUCCESS: {
                       target: 'loaded',
                       actions: assign({liveEvents: (context, event) => event.liveEvents}),
-                    }
+                    },
+                    LIVE_MATCHES_FAILED: {
+                        target: 'failed',
+                        actions: assign({error: (context, event) => event.error}),
+                      },
                   },
-                  onError: {
-                  target: 'failed',
-                  actions: assign({errors: (context, event) => event.errors}),
-                }
               },
               loaded: {},
               failed: {}

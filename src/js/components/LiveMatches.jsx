@@ -1,27 +1,17 @@
-import React, { useEffect } from 'react';
+import React  from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import useJSONP from 'use-jsonp';
 import SideBlock from './SideBlock';
 import Slider from 'react-slick';
 import Match from './Match';
-import { mappedLiveEventsData, carouselStyle } from '../utils/utils';
-import { LIVE_MATCHES_API } from '../constants';
+import Error from './Error';
+import Loading from './Loading';
+import { mappedLiveEventsData, carouselStyle, fetchLiveEvents } from '../utils/utils';
 
 const LiveMatches = ({ current, send }) => {
-    const { liveEvents, errors } = current.context   
+    const { liveEvents, error } = current.context   
 
-
-    const sendJsonP = useJSONP({
-        url: LIVE_MATCHES_API,
-        id: 'liveMatchesScript',
-        callback: (data) => send('CALLBACK', data),
-        callbackParam: "callback",
-    });
-
-    useEffect(() => {
-        sendJsonP();
-    });
+    fetchLiveEvents({send});
 
     return (
         <div id="content">
@@ -31,13 +21,11 @@ const LiveMatches = ({ current, send }) => {
                     Here is a list of matches that are live right now.
                 </p>
                 <SideBlock />
-                {current.matches({ fetchMatches: 'loading' }) && <div> Loading...</div>}
-                {current.matches({ fetchMatches: 'loaded' }) && 
-                    <Slider {...carouselStyle}>
-                        {mappedLiveEventsData(liveEvents).map((match)=> (<Match key={match.id} liveEvent={match}/>))}
-                    </Slider>
-                }
-                {current.matches({ fetchMatches: 'failed' }) && <div>{errors}</div>}
+                <Slider {...carouselStyle}>
+                    {current.matches({ fetchMatches: 'loading' }) && <Loading />}
+                    {current.matches({ fetchMatches: 'loaded' }) && mappedLiveEventsData(liveEvents).map((match)=> (<Match key={match.id} liveEvent={match}/>))}
+                    {current.matches({ fetchMatches: 'failed' }) && <Error error={error}/>}
+                </Slider>
                 <div id="live-matches"></div>
             </article>
         </div>
