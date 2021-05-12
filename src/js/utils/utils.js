@@ -21,7 +21,9 @@ export const mappedLiveEventsData = (data) => data.map(({
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000
 };
 
 
@@ -35,4 +37,11 @@ fetchJsonp(LIVE_MATCHES_API)
         error = "Request to fetch data failed. Please Try again later."
         send('LIVE_MATCHES_FAILED', {error});
     });
-}
+};
+
+export const formatDate = (dateString) => {
+  const currentDate = new Date().toISOString().slice(0,10);
+  const liveEventDate = dateString.slice(0, 10);
+  const time = `${new Date(dateString).getHours()} : ${new Date(dateString).getMinutes()}`;
+  return currentDate === liveEventDate ? `Today, ${time}` : `${liveEventDate}, ${time}`;
+};
