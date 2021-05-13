@@ -6,12 +6,12 @@ import Slider from 'react-slick';
 import Match from './Match';
 import Error from './Error';
 import Loading from './Loading';
-import { mappedLiveEventsData, carouselStyle, fetchLiveEvents } from '../utils/utils';
+import { mappedLiveEventsData, carouselStyle, getLiveEventsFromCache } from '../utils/utils';
 
 const LiveMatches = ({ current, send }) => {
     const { liveEvents, error } = current.context   
 
-    fetchLiveEvents({send});
+    getLiveEventsFromCache({send});
 
     return (
         <div id="content">

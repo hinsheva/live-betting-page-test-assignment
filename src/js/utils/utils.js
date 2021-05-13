@@ -3,7 +3,7 @@ import football from '../../images/icons/football.png';
 import tennis from '../../images/icons/tennis.png';
 import defaultIcon from '../../images/icons/defaultIcon.png';
 import fetchJsonp from 'fetch-jsonp';
-import { LIVE_MATCHES_API } from '../constants';
+import { LIVE_MATCHES_API, MAX_CACHE_TIME } from '../constants';
 
 
 export const mappedLiveEventsData = (data) => data.map(({
@@ -30,12 +30,24 @@ export const mappedLiveEventsData = (data) => data.map(({
     autoplaySpeed: 3000
 };
 
+export const getLiveEventsFromCache = ({send}) => {
+  const cacheTime = localStorage.getItem('liveEventsCacheTimeStamp');
+  const cacheData = localStorage.getItem('liveEvents');
+  const outdatedCacheTime = parseInt(cacheTime) + MAX_CACHE_TIME;
+  if(cacheTime && cacheData && (Date.now() <= outdatedCacheTime)){
+    send('liveMatchesSuccess', JSON.parse(cacheData));
+  } else {
+    fetchLiveEvents({send});
+  }
+};
 
 export const fetchLiveEvents = ({send}) => {
-  fetchJsonp(LIVE_MATCHES_API)
+    fetchJsonp(LIVE_MATCHES_API)
     .then(function(response) {
         return response.json()
     }).then(function(json) {
+        localStorage.setItem('liveEventsCacheTimeStamp', Date.now())
+        localStorage.setItem('liveEvents', JSON.stringify(json));
         send('liveMatchesSuccess', json);
     }).catch(function(error) {
         //hardcoded user friendly error message when no error handling requiremnts
