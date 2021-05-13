@@ -1,0 +1,52 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "jest": true
+  },
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react"
+  ],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "import/extensions": ["error", "never"],
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/label-has-for": "off",
+    "jsx-a11y/media-has-caption": "off",
+    "react/no-danger": "off",
+    "react/destructuring-assignment": "warn",
+    "react/no-access-state-in-setstate": "warn",
+    "react/forbid-prop-types": "warn",
+    "jsx-a11y/label-has-associated-control": "warn",
+    "react/require-default-props": [
+      1,
+      { "forbidDefaultForRequired": true, "ignoreFunctionalComponents": true }
+    ],
+    "react/button-has-type": "warn",
+    "import/no-cycle": "warn",
+    "react/prop-types": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "import/no-unresolved": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-closing-bracket-location": ["off"],
+    "react/jsx-wrap-multilines": ["error", { "declaration": false, "assignment": false }],
+    "react/jsx-props-no-spreading": ["off"]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src/"]
+      }
+    }
+  },
+  "globals": {
+    "fetch": true,
+    "window": true
+  }
+}
