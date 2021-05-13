@@ -21,11 +21,13 @@ const LiveMatches = ({ current, send }) => {
                     Here is a list of matches that are live right now.
                 </p>
                 <SideBlock />
-                <Slider {...carouselStyle}>
-                    {current.matches({ liveMatches: 'loading' }) && <Loading />}
-                    {current.matches({ liveMatches: 'loaded' }) && mappedLiveEventsData(liveEvents).map((match)=> (<Match key={match.id} liveEvent={match} send={send}/>))}
-                    {current.matches({ liveMatches: 'failed' }) && <Error error={error}/>}
-                </Slider>
+                <div id="live-matches">
+                    <Slider {...carouselStyle}>
+                        {current.matches({ liveMatches: 'loading' }) && <Loading />}
+                        {current.matches({ liveMatches: 'loaded' }) && mappedLiveEventsData(liveEvents).map((match)=> (<Match key={match.id} liveEvent={match} send={send}/>))}
+                        {current.matches({ liveMatches: 'failed' }) && <Error error={error}/>}
+                    </Slider>
+                </div>
             </article>
         </div>
     )
