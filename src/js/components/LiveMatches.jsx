@@ -7,9 +7,12 @@ import Match from './Match';
 import Error from './Error';
 import Loading from './Loading';
 import { mappedLiveEventsData, carouselStyle, getLiveEventsFromCache } from '../utils/utils';
+import { STATES } from '../constants';
+
 
 const LiveMatches = ({ current, send }) => {
-    const { liveEvents, error } = current.context   
+    const { liveEvents, error } = current.context
+    const { LOADING, LOADED, FAILED} = STATES
 
     getLiveEventsFromCache({send});
 
@@ -23,9 +26,9 @@ const LiveMatches = ({ current, send }) => {
                 <SideBlock />
                 <div id="live-matches">
                     <Slider {...carouselStyle}>
-                        {current.matches('loading') && <Loading />}
-                        {current.matches('loaded') && mappedLiveEventsData(liveEvents).map((match)=> (<Match key={match.id} liveEvent={match} send={send}/>))}
-                        {current.matches('failed') && <Error error={error}/>}
+                        {current.matches(LOADING) && <Loading />}
+                        {current.matches(LOADED) && mappedLiveEventsData(liveEvents).map((match)=> (<Match key={match.id} liveEvent={match} send={send}/>))}
+                        {current.matches(FAILED) && <Error error={error}/>}
                     </Slider>
                 </div>
             </article>

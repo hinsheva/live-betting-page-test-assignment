@@ -1,6 +1,7 @@
 import React from 'react';
 import { LIVE_BETTING_URL } from '../constants';
 import { formatDate, getSportIcon } from '../utils/utils';
+import { ACTIONS } from '../constants';
 
 const Match = ({liveEvent, send}) => {
     const { 
@@ -24,7 +25,7 @@ const Match = ({liveEvent, send}) => {
                 <img src={sportIcon} alt={sport ? sport : 'sport'}/> {awayName} { awayName && homeName ? '-' : ''} {homeName}
             </div>
             <div className="date">{eventDate}</div>
-            <button className="bet-button" onClick={()=>send('placeBet', {liveEventUrl})}> Place a bet</button>
+            <button className="bet-button" onClick={()=>send(ACTIONS.PLACE_BET, {liveEventUrl})}> Place a bet</button>
         </div>
     )
 }

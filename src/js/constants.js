@@ -2,3 +2,16 @@ export const LIVE_MATCHES_API = 'http://api.unicdn.net/v1/feeds/sportsbook/event
 export const LIVE_BETTING_URL = 'https://www.unibet.com/betting#/event/live/';
 export const MAX_CACHE_TIME = 120000;
 
+//State Machine
+export const STATES = {
+    LOADING: 'loading',
+    LOADED: 'loaded',
+    FAILED: 'failed',
+    REDIRECTED: 'redirected',
+};
+
+export const ACTIONS = {
+    FETCH_MATCHES_SUCCESS: 'liveMatchesSuccess',
+    FETCH_MATCHES_FAILURE: 'liveMatchesFailure',
+    PLACE_BET: 'placeBet',
+}

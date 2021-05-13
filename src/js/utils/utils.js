@@ -3,7 +3,7 @@ import football from '../../images/icons/football.png';
 import tennis from '../../images/icons/tennis.png';
 import defaultIcon from '../../images/icons/defaultIcon.png';
 import fetchJsonp from 'fetch-jsonp';
-import { LIVE_MATCHES_API, MAX_CACHE_TIME } from '../constants';
+import { LIVE_MATCHES_API, MAX_CACHE_TIME, ACTIONS } from '../constants';
 
 
 export const mappedLiveEventsData = (data) => data.map(({
@@ -48,11 +48,11 @@ export const fetchLiveEvents = ({send}) => {
     }).then(function(json) {
         localStorage.setItem('liveEventsCacheTimeStamp', Date.now())
         localStorage.setItem('liveEvents', JSON.stringify(json));
-        send('liveMatchesSuccess', json);
+        send(ACTIONS.FETCH_MATCHES_SUCCESS, json);
     }).catch(function(error) {
         //hardcoded user friendly error message when no error handling requiremnts
         error = "Match data is not available now. Please Try again later."
-        send('liveMatchesFailed', {error});
+        send(ACTIONS.FETCH_MATCHES_FAILURE, {error});
     });
 };
 
