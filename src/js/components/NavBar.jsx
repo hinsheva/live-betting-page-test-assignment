@@ -5,7 +5,7 @@ const NavBar = () => {
         <nav>
             <ul>
                 <li>
-                    <a href="instructions/index.html" >Futute Navbar element</a></li>
+                    <a href="instructions/index.html" >Navbar element</a></li>
             </ul>
         </nav>
     )

@@ -14,8 +14,6 @@
     "react-scripts": "4.0.3",
     "react-slick": "^0.28.1",
     "slick-carousel": "^1.8.1",
-    "use-jsonp": "^1.0.1",
-    "web-vitals": "^1.0.1",
     "xstate": "^4.19.1"
   },
   "scripts": {
@@ -41,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "webpack": "^4.44.2"
   }
 }
