@@ -6,9 +6,11 @@
   "extends": [
     "airbnb",
     "prettier",
-    "prettier/react"
+    "prettier/react",
+    "plugin:flowtype/recommended",
+    "prettier/flowtype"
   ],
-  "plugins": ["prettier"],
+  "plugins": ["flowtype", "prettier"],
   "rules": {
     "prettier/prettier": "error",
     "import/extensions": ["error", "never"],

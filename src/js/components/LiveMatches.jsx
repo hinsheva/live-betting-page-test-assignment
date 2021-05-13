@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -9,7 +11,7 @@ import Loading from './Loading';
 import { mappedLiveEventsData, carouselStyle, getLiveEventsFromCache } from '../utils/utils';
 import { STATES } from '../constants';
 
-const LiveMatches = ({ current, send }) => {
+const LiveMatches = ({ current, send }: { current: string, send: Function }) => {
   const { liveEvents, error } = current.context;
   const { LOADING, LOADED, FAILED } = STATES;
 

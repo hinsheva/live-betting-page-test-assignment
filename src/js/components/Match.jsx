@@ -1,8 +1,24 @@
+// @flow
+
 import React from 'react';
 import { LIVE_BETTING_URL, ACTIONS } from '../constants';
 import { formatDate, getSportIcon } from '../utils/utils';
 
-const Match = ({ liveEvent, send }) => {
+const Match = ({
+  liveEvent,
+  send,
+}: {
+  liveEvent: {
+    start: string,
+    awayName: string,
+    homeName: string,
+    id: Number,
+    sport: string,
+    awayScore: string,
+    homeScore: string,
+  },
+  send: Function,
+}) => {
   const { start, awayName, homeName, id, sport, awayScore, homeScore } = liveEvent;
 
   const eventDate = formatDate(start);
@@ -19,7 +35,10 @@ const Match = ({ liveEvent, send }) => {
         {homeName}
       </div>
       <div className="date">{eventDate}</div>
-      <button className="bet-button" onClick={() => send(ACTIONS.PLACE_BET, { liveEventUrl })}>
+      <button
+        className="bet-button"
+        type="button"
+        onClick={() => send(ACTIONS.PLACE_BET, { liveEventUrl })}>
         {' '}
         Place a bet
       </button>

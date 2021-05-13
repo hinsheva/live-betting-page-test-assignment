@@ -1,3 +1,6 @@
+/* eslint-disable func-names */
+/* eslint-disable no-undef */
+/* eslint-disable no-param-reassign */
 import fetchJsonp from 'fetch-jsonp';
 import basketball from '../../images/icons/basketball.png';
 import football from '../../images/icons/football.png';
@@ -31,17 +34,6 @@ export const carouselStyle = {
   autoplaySpeed: 3000,
 };
 
-export const getLiveEventsFromCache = ({ send }) => {
-  const cacheTime = localStorage.getItem('liveEventsCacheTimeStamp');
-  const cacheData = localStorage.getItem('liveEvents');
-  const outdatedCacheTime = parseInt(cacheTime) + MAX_CACHE_TIME;
-  if (cacheTime && cacheData && Date.now() <= outdatedCacheTime) {
-    send('liveMatchesSuccess', JSON.parse(cacheData));
-  } else {
-    fetchLiveEvents({ send });
-  }
-};
-
 export const fetchLiveEvents = ({ send }) => {
   fetchJsonp(LIVE_MATCHES_API)
     .then(function (response) {
@@ -57,6 +49,17 @@ export const fetchLiveEvents = ({ send }) => {
       error = 'Match data is not available now. Please Try again later.';
       send(ACTIONS.FETCH_MATCHES_FAILURE, { error });
     });
+};
+
+export const getLiveEventsFromCache = ({ send }) => {
+  const cacheTime = localStorage.getItem('liveEventsCacheTimeStamp');
+  const cacheData = localStorage.getItem('liveEvents');
+  const outdatedCacheTime = Number(cacheTime) + MAX_CACHE_TIME;
+  if (cacheTime && cacheData && Date.now() <= outdatedCacheTime) {
+    send('liveMatchesSuccess', JSON.parse(cacheData));
+  } else {
+    fetchLiveEvents({ send });
+  }
 };
 
 export const formatDate = (dateString) => {
@@ -79,4 +82,5 @@ export const getSportIcon = (sport) => {
     };
     return iconPath[sport.toLowerCase()] || defaultIcon;
   }
+  return defaultIcon;
 };
