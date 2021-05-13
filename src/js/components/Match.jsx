@@ -1,6 +1,6 @@
 import React from 'react';
 import { LIVE_BETTING_URL } from '../constants';
-import { formatDate } from '../utils/utils';
+import { formatDate, getSportIcon } from '../utils/utils';
 
 const Match = ({liveEvent}) => {
     const { 
@@ -14,12 +14,13 @@ const Match = ({liveEvent}) => {
     } = liveEvent;
 
     const eventDate = formatDate(start);
+    const sportIcon = getSportIcon(sport);
 
     return (
         <div className="match">
-            <div className="score">{awayScore} - {homeScore}</div>
-            <div className="team-container">{awayName} - {homeName}
-                <img src="" alt={sport}/>
+            <div className="score">{awayScore && homeScore ? `${awayScore} - ${homeScore}`: 'No score'}</div>
+            <div className="team-container">
+                <img src={sportIcon} alt={sport ? sport : 'sport'}/> {awayName} { awayName && homeName ? '-' : ''} {homeName}
             </div>
             <div className="date">{eventDate}</div>
             <button className="bet-button">

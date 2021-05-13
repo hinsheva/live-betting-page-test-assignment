@@ -9,7 +9,6 @@ import { liveMatchesMachine } from '../machine/liveMatchesMachine';
 
 const App = () => {
   const [current, send] = useMachine(liveMatchesMachine);
-  
   return (
     <>
     <div id="container">

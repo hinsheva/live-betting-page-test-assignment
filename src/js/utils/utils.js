@@ -1,3 +1,7 @@
+import basketball from '../../images/icons/basketball.png';
+import football from '../../images/icons/football.png';
+import tennis from '../../images/icons/tennis.png';
+import defaultIcon from '../../images/icons/defaultIcon.png';
 import fetchJsonp from 'fetch-jsonp';
 import { LIVE_MATCHES_API } from '../constants';
 
@@ -34,14 +38,31 @@ fetchJsonp(LIVE_MATCHES_API)
     }).then(function(json) {
         send('LIVE_MATCHES_SUCCESS', json);
     }).catch(function(error) {
-        error = "Request to fetch data failed. Please Try again later."
+        //hardcoded user friendly error message when no error handling requiremnts
+        error = "Match data is not available now. Please Try again later."
         send('LIVE_MATCHES_FAILED', {error});
     });
 };
 
 export const formatDate = (dateString) => {
-  const currentDate = new Date().toISOString().slice(0,10);
-  const liveEventDate = dateString.slice(0, 10);
-  const time = dateString.slice(11, 16)
-  return currentDate === liveEventDate ? `Today, ${time}` : `${liveEventDate}, ${time}`;
+  //dateString.length needs to be >=16 to contain both an event date and time
+  if(dateString && dateString.length >=16) {
+    const currentDate = new Date().toISOString().slice(0,10);
+    const liveEventDate = dateString.slice(0, 10);
+    const time = dateString.slice(11, 16)
+    return currentDate === liveEventDate ? `Today, ${time}` : `${liveEventDate}, ${time}`;
+  }
+  return 'No date';
 };
+
+
+export const getSportIcon = (sport) => {
+  if(sport && sport.length > 0) {
+    const iconPath = {
+      basketball,
+      football,
+      tennis,
+    };
+    return iconPath[sport.toLowerCase()] || defaultIcon;
+  }
+}

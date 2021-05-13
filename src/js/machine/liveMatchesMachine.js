@@ -1,6 +1,5 @@
 import { createMachine, assign } from 'xstate';
 
-
 export const liveMatchesMachine = createMachine({
   id: 'liveMatches',
   initial: 'fetchMatches',
