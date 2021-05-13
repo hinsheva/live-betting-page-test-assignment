@@ -30,8 +30,6 @@
     "react/button-has-type": "warn",
     "import/no-cycle": "warn",
     "react/prop-types": "warn",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
     "import/no-unresolved": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-closing-bracket-location": ["off"],

@@ -10,32 +10,36 @@ export const liveMatchesMachine = createMachine({
   },
   states: {
     [STATES.LOADING]: {
-        on: {
-            [ACTIONS.FETCH_MATCHES_SUCCESS]: {
-                target: STATES.LOADED,
-                actions: assign({liveEvents: (context, event) => event.liveEvents}),
-            },
-            [ACTIONS.FETCH_MATCHES_FAILURE]: {
-                target: STATES.FAILED,
-                actions: assign({error: (context, event) => event.error}),
-            },
+      on: {
+        [ACTIONS.FETCH_MATCHES_SUCCESS]: {
+          target: STATES.LOADED,
+          actions: assign({ liveEvents: (context, event) => event.liveEvents }),
         },
+        [ACTIONS.FETCH_MATCHES_FAILURE]: {
+          target: STATES.FAILED,
+          actions: assign({ error: (context, event) => event.error }),
+        },
+      },
     },
     [STATES.LOADED]: {
-        on: {
-            [ACTIONS.PLACE_BET]: {
-                target: STATES.REDIRECTED,
-                actions: assign({liveEventUrl: (context, event) => {window.location.assign(event.liveEventUrl)}}),
-            }
-        }
+      on: {
+        [ACTIONS.PLACE_BET]: {
+          target: STATES.REDIRECTED,
+          actions: assign({
+            liveEventUrl: (context, event) => {
+              window.location.assign(event.liveEventUrl);
+            },
+          }),
+        },
+      },
     },
     [STATES.FAILED]: {
-        type: 'final',
+      type: 'final',
     },
-    [STATES.REDIRECTED]: {      
-        type: 'final',
+    [STATES.REDIRECTED]: {
+      type: 'final',
     },
-    }
+  },
 });
 
 export default liveMatchesMachine;
