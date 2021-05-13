@@ -23,9 +23,9 @@ const LiveMatches = ({ current, send }) => {
                 <SideBlock />
                 <div id="live-matches">
                     <Slider {...carouselStyle}>
-                        {current.matches({ liveMatches: 'loading' }) && <Loading />}
-                        {current.matches({ liveMatches: 'loaded' }) && mappedLiveEventsData(liveEvents).map((match)=> (<Match key={match.id} liveEvent={match} send={send}/>))}
-                        {current.matches({ liveMatches: 'failed' }) && <Error error={error}/>}
+                        {current.matches('loading') && <Loading />}
+                        {current.matches('loaded') && mappedLiveEventsData(liveEvents).map((match)=> (<Match key={match.id} liveEvent={match} send={send}/>))}
+                        {current.matches('failed') && <Error error={error}/>}
                     </Slider>
                 </div>
             </article>

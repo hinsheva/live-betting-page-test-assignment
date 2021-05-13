@@ -32,7 +32,7 @@ export const mappedLiveEventsData = (data) => data.map(({
 
 
 export const fetchLiveEvents = ({send}) => {
-fetchJsonp(LIVE_MATCHES_API)
+  fetchJsonp(LIVE_MATCHES_API)
     .then(function(response) {
         return response.json()
     }).then(function(json) {
