@@ -1,32 +1,43 @@
 import { createMachine, assign } from 'xstate';
 
 export const liveMatchesMachine = createMachine({
-  id: 'liveMatches',
-  initial: 'fetchMatches',
+  id: 'liveEvents',
+  initial: 'liveMatches',
   context: {
     liveEvents: [],
     error: '',
   },
   states: {
-    fetchMatches: {
+    liveMatches: {
         initial: 'loading',
         states: {
             loading: {
                   on: {
-                    LIVE_MATCHES_SUCCESS: {
+                    'liveMatchesSuccess': {
                       target: 'loaded',
                       actions: assign({liveEvents: (context, event) => event.liveEvents}),
                     },
-                    LIVE_MATCHES_FAILED: {
+                    'liveMatchesFailed': {
                         target: 'failed',
                         actions: assign({error: (context, event) => event.error}),
                       },
                   },
               },
-              loaded: {},
-              failed: {}
-        }
-    }
+              loaded: {
+                  on: {
+                    'placeBet': {
+                        initial: 'loading',
+                        target: 'redirected',
+                        actions: assign({liveEventUrl: (context, event) => {window.location.assign(event.liveEventUrl)}}),
+                    }
+                  }
+              },
+              failed: {},
+              redirected: {      
+                type: 'final',
+            },
+        },
+    },
   },
 });
 

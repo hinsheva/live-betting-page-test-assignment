@@ -36,11 +36,11 @@ fetchJsonp(LIVE_MATCHES_API)
     .then(function(response) {
         return response.json()
     }).then(function(json) {
-        send('LIVE_MATCHES_SUCCESS', json);
+        send('liveMatchesSuccess', json);
     }).catch(function(error) {
         //hardcoded user friendly error message when no error handling requiremnts
         error = "Match data is not available now. Please Try again later."
-        send('LIVE_MATCHES_FAILED', {error});
+        send('liveMatchesFailed', {error});
     });
 };
 
