@@ -26,7 +26,6 @@ const LiveMatches = ({ current, send }) => {
                     {current.matches({ liveMatches: 'loaded' }) && mappedLiveEventsData(liveEvents).map((match)=> (<Match key={match.id} liveEvent={match} send={send}/>))}
                     {current.matches({ liveMatches: 'failed' }) && <Error error={error}/>}
                 </Slider>
-                <div id="live-matches"></div>
             </article>
         </div>
     )
