@@ -2,14 +2,12 @@ node_modules
 .DS_Store
 coverage/
 junit.xml
+.snap
 .vscode
 .swp
 /dist/
 /flow-coverage/
 /.idea/
-cypress/report/*
-cypress/screenshots/*
-cypress/videos/**
 **/*junit-*.xml
 reports
 build

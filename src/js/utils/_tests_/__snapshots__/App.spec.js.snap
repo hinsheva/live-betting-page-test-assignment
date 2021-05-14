@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders correctly child component LiveMatches 1`] = `
+<div
+  id="content"
+>
+  <article>
+    <h1>
+      Live matches
+    </h1>
+    <p
+      className="preamble"
+    >
+      Here is a list of matches that are live right now.
+    </p>
+    <SideBlock />
+    <div
+      id="live-matches"
+    >
+      <Slider
+        autoplay={true}
+        autoplaySpeed={3000}
+        dots={false}
+        infinite={true}
+        slidesToScroll={1}
+        slidesToShow={1}
+        speed={500}
+      >
+        <Loading />
+        <Error />
+      </Slider>
+    </div>
+  </article>
+</div>
+`;
+
+exports[`App should render LiveMatches component with children 1`] = `
+<div
+  id="container"
+>
+  <header>
+    <div
+      id="logo"
+    >
+      Unibet
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li>
+        <a
+          href="instructions/index.html"
+        >
+          Navbar element
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div
+    id="content"
+  >
+    <article>
+      <h1>
+        Live matches
+      </h1>
+      <p
+        className="preamble"
+      >
+        Here is a list of matches that are live right now.
+      </p>
+      <aside>
+        <h2>
+          Live betting
+        </h2>
+        <p>
+          Place your bets as the action unfolds. We offer a wide selection of live betting events and you can place both single and combination bets.
+        </p>
+        <p>
+          You will be able to see an in-play scoreboard with the current result and match stats, while on selected events you will also be able to watch the action live with Unibet TV on the desktop site.
+        </p>
+      </aside>
+      <div
+        id="live-matches"
+      >
+        <div
+          className="slick-slider slick-initialized"
+        >
+          
+          <div
+            className="slick-list"
+          >
+            <div
+              className="slick-track"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseOver={[Function]}
+              style={
+                Object {
+                  "WebkitTransform": "translate3d(0px, 0px, 0px)",
+                  "WebkitTransition": "",
+                  "msTransform": "translateX(0px)",
+                  "opacity": 1,
+                  "transform": "translate3d(0px, 0px, 0px)",
+                  "transition": "",
+                }
+              }
+            >
+              <div
+                aria-hidden={false}
+                className="slick-slide slick-active slick-current"
+                data-index={0}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "outline": "none",
+                    "width": 0,
+                  }
+                }
+                tabIndex="-1"
+              >
+                <div>
+                  <div
+                    className="loading"
+                  >
+                    <div>
+                      Loading...
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+        </div>
+      </div>
+    </article>
+  </div>
+  <footer>
+    <div
+      className="inner"
+    >
+      <p>
+        © 1997-2015, Unibet. All rights reserved.
+      </p>
+    </div>
+  </footer>
+</div>
+`;
