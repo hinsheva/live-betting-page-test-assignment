@@ -3,8 +3,8 @@
 
 ## Technical details
 
-### The solution is built using front-end technologies only (JavaScript, HTML, CSS, React, xState).
-### Main js code is located in /live-matches-assignment/src/js/ folder
+#### The solution is built using front-end technologies only (JavaScript, HTML, CSS, React, xState).
+#### Main js code is located in /live-matches-assignment/src/js/ folder
 #### UI react components located in /live-matches-assignment/src/components folder
 #### State machine is located in /live-matches-assignment/src/machine/ folder
 #### Helper methods/utils incapsulated and stored in utils.js file under /live-matches-assignment/src/js/utils/ folder for better tracability, readability and keeping code clean
@@ -25,9 +25,8 @@
 ### `npm flow`
 
 
-##### OVERVIEW #####
+##### Project structure: #####
 
-######Project structure: ######
 
 ├──**src** folder
 
@@ -37,15 +36,7 @@
 
 ├──├──**images** folder
 
-├──├──├──**icons** folder
-
-├──├──├──├──**basketball.png** file
-
-├──├──├──├──**defaultIcon.png** file
-
-├──├──├──├──**football.png** file
-
-├──├──├──├──**tennis.png** file
+├──├──├──**icons** folder with sposrt icons for live evnts
 
 ├──├──├──**unibet-logo.png** file
 
@@ -65,7 +56,7 @@
 
 ├──├──├──**utils** folder
 
-├──├──├──├──**_tests_** folder with unit and UI tests
+├──├──├──├──**tests** folder with unit and UI tests
 
 ├──├──├──├──**utils.js** file
 
@@ -77,13 +68,13 @@
 
 ├──├──**setupTests.js** file
 
-├──**.babelrc.js** .file
+├──**babelrc.js** .file
 
-├──**.eslintrc** file
+├──**eslintrc** file
 
-├──**.gitignore** file
+├──**gitignore** file
 
-├──**.prettierrc** file
+├──**prettierrc** file
 
 ├──**package-lock.json** file
 
