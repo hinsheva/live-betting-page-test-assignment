@@ -5,6 +5,8 @@ export const MAX_CACHE_TIME = 120000;
 export const PLACE_BET_BUTTON_TEXT = 'Place a bet';
 export const LIVE_MATCHES_H1_TEXT = 'Live matches';
 export const LIVE_MATCHES_P_TEXT = 'Here is a list of matches that are live right now.';
+export const FETCH_MATCHES_ERROR_MESSAGE =
+  'Match data is not available now. Please Try again later.';
 
 // State Machine
 export const STATES = {

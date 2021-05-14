@@ -1,12 +1,14 @@
-/* eslint-disable func-names */
-/* eslint-disable no-undef */
-/* eslint-disable no-param-reassign */
 import fetchJsonp from 'fetch-jsonp';
 import basketball from '../../images/icons/basketball.png';
 import football from '../../images/icons/football.png';
 import tennis from '../../images/icons/tennis.png';
 import defaultIcon from '../../images/icons/defaultIcon.png';
-import { LIVE_MATCHES_API, MAX_CACHE_TIME, ACTIONS } from '../constants';
+import {
+  LIVE_MATCHES_API,
+  MAX_CACHE_TIME,
+  ACTIONS,
+  FETCH_MATCHES_ERROR_MESSAGE,
+} from '../constants';
 
 export const mappedLiveEventsData = (data) =>
   data.map(
@@ -45,9 +47,10 @@ export const fetchLiveEvents = ({ send }) => {
       send(ACTIONS.FETCH_MATCHES_SUCCESS, json);
     })
     .catch(function (error) {
+      console.log(error);
       // hardcoded user friendly error message when no error handling requiremnts
-      error = 'Match data is not available now. Please Try again later.';
-      send(ACTIONS.FETCH_MATCHES_FAILURE, { error });
+      const errorMessage = FETCH_MATCHES_ERROR_MESSAGE;
+      send(ACTIONS.FETCH_MATCHES_FAILURE, { errorMessage });
     });
 };
 
