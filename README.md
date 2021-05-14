@@ -6,6 +6,7 @@
 #### 1. The solution is built using front-end technologies only (JavaScript, HTML, CSS, React, xState).
 #### 2. Main js code is located in /live-matches-assignment/src/js/ folder.
 #### 3. UI react components located in /live-matches-assignment/src/components folder.
+#### Note: main html has been splitted between react components for better tracability, readability and keeping the code clean, modularized and reusable in case of future extention.
 #### 4. State machine is located in /live-matches-assignment/src/machine/ folder.
 #### 5. Helper methods/utils incapsulated and stored in utils.js file under /live-matches-assignment/src/js/utils/ folder for better tracability, readability and keeping code clean.
 #### 6. Constants stored in constants.js file under /live-matches-assignment/src/js/ folder for better tracability, readability and keeping code clean.
