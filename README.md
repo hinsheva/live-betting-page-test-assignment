@@ -1,70 +1,92 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# LIVE BETTING PAGE TEST ASSIGNMENT PROJECT
 
-## Available Scripts
+## Technical details
 
-In the project directory, you can run:
+### The solution is built using front-end technologies only (JavaScript, HTML, CSS, React, xState).
+### Main js code is located in /live-matches-assignment/src/js/ folder
+#### UI react components located in /live-matches-assignment/src/components folder
+#### State machine is located in /live-matches-assignment/src/machine/ folder
+#### Helper methods/utils incapsulated and stored in utils.js file under /live-matches-assignment/src/js/utils/ folder for better tracability, readability and keeping code clean
+#### Constants stored in constants.js file under /live-matches-assignment/src/js/ folder for better tracability, readability and keeping code clean
+#### Both UI and unit testing are in place with relatively good coverage. Note: in real world scenario 'cypress' framework would be used to compensate main ui and integration test coverage
+#### @flow is added to main files to provide props typing
+#### All code of the project is formatted and adjusted per the most commonly used eslint and prettier rules, based on expierence of every day work in Kindred
+#### setupTests.js file has extra logic to make the testing of components with 3rd party libs like(Slidrer/carousel) be compatible with other technologies used in this project
+#### html, css, assets like images/icons and basic html file are stored in /live-matches-assignment/src/ folder with the original asssignment structure
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Available Main Scripts
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `npm start`
+### `npm build`
+### `npm test`
+### `npm eslint`
+### `npm flow`
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##### OVERVIEW #####
 
-### `yarn build`
+######Project structure: ######
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+├──**src** folder
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+├──├──**css** folder
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+├──├──├──**main.css** file
 
-### `yarn eject`
+├──├──**images** folder
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+├──├──├──**icons** folder
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+├──├──├──├──**basketball.png** file
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+├──├──├──├──**defaultIcon.png** file
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+├──├──├──├──**football.png** file
 
-## Learn More
+├──├──├──├──**tennis.png** file
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+├──├──├──**unibet-logo.png** file
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+├──├──**instructions** folder
 
-### Code Splitting
+├──├──├──**design.png** file
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+├──├──├──**index.html** file
 
-### Analyzing the Bundle Size
+├──├──**js** folder
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+├──├──├──**components** folder with UI react components
 
-### Making a Progressive Web App
+├──├──├──**machine** folder
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+├──├──├──├──**liveMatchesMachine.js** file
 
-### Advanced Configuration
+├──├──├──**utils** folder
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+├──├──├──├──**_tests_** folder with unit and UI tests
 
-### Deployment
+├──├──├──├──**utils.js** file
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+├──├──├──**constants.js** file
 
-### `yarn build` fails to minify
+├──├──**index.html** file
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+├──├──**index.js** file
+
+├──├──**setupTests.js** file
+
+├──**.babelrc.js** .file
+
+├──**.eslintrc** file
+
+├──**.gitignore** file
+
+├──**.prettierrc** file
+
+├──**package-lock.json** file
+
+├──**package.json** file
+
+├──**README.md** file
