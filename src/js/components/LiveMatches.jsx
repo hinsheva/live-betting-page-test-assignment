@@ -9,7 +9,7 @@ import Match from './Match';
 import Error from './Error';
 import Loading from './Loading';
 import { mappedLiveEventsData, carouselStyle, getLiveEventsFromCache } from '../utils/utils';
-import { STATES } from '../constants';
+import { STATES, LIVE_MATCHES_H1_TEXT, LIVE_MATCHES_P_TEXT } from '../constants';
 
 const LiveMatches = ({ current, send }: { current: string, send: Function }) => {
   const { liveEvents, error } = current.context;
@@ -20,8 +20,8 @@ const LiveMatches = ({ current, send }: { current: string, send: Function }) => 
   return (
     <div id="content">
       <article>
-        <h1>Live matches</h1>
-        <p className="preamble">Here is a list of matches that are live right now.</p>
+        <h1>{LIVE_MATCHES_H1_TEXT}</h1>
+        <p className="preamble">{LIVE_MATCHES_P_TEXT}</p>
         <SideBlock />
         <div id="live-matches">
           <Slider {...carouselStyle}>
