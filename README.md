@@ -4,16 +4,17 @@
 ## Technical details
 
 #### 1. The solution is built using front-end technologies only (JavaScript, HTML, CSS, React, xState).
-#### 2. Main js code is located in /live-matches-assignment/src/js/ folder
-#### 3. UI react components located in /live-matches-assignment/src/components folder
-#### 4. State machine is located in /live-matches-assignment/src/machine/ folder
-#### 5. Helper methods/utils incapsulated and stored in utils.js file under /live-matches-assignment/src/js/utils/ folder for better tracability, readability and keeping code clean
-#### 6. Constants stored in constants.js file under /live-matches-assignment/src/js/ folder for better tracability, readability and keeping code clean
-#### 7. Both UI and unit testing are in place with relatively good coverage. Note: in real world scenario 'cypress' framework would be used to compensate main ui and integration test coverage
-#### 8. @flow is added to main files to provide props typing
-#### 9. All code of the project is formatted and adjusted per the most commonly used eslint and prettier rules, based on expierence of every day work in Kindred
-#### 10. setupTests.js file has extra logic to make the testing of components with 3rd party libs like(Slidrer/carousel) be compatible with other technologies used in this project
-#### 11. html, css, assets like images/icons and basic html file are stored in /live-matches-assignment/src/ folder with the original asssignment structure
+#### 2. Main js code is located in /live-matches-assignment/src/js/ folder.
+#### 3. UI react components located in /live-matches-assignment/src/components folder.
+#### 4. State machine is located in /live-matches-assignment/src/machine/ folder.
+#### 5. Helper methods/utils incapsulated and stored in utils.js file under /live-matches-assignment/src/js/utils/ folder for better tracability, readability and keeping code clean.
+#### 6. Constants stored in constants.js file under /live-matches-assignment/src/js/ folder for better tracability, readability and keeping code clean.
+#### 7. Both UI and unit testing are in place with relatively good coverage. Note: in real world scenario 'cypress' framework would be used to compensate main ui and integration test coverage.
+#### 8. @flow is added to main files to provide props typing.
+#### 9. Optimization is inbuilt used react version feature where manification and chunk splitting technologies used for app perfomance optimization.
+#### 9. All code of the project is formatted and adjusted per the most commonly used eslint and prettier rules, based on expierence of every day work in Kindred.
+#### 10. setupTests.js file has extra logic to make the testing of components with 3rd party libs like(Slidrer/carousel) be compatible with other technologies used in this project.
+#### 11. html, css, assets like images/icons and basic html file are stored in /live-matches-assignment/src/ folder with the original asssignment structure.
 
 
 ## Available Main Scripts
@@ -25,7 +26,7 @@
 ### `npm flow`
 
 
-## Project structure:
+## Project structure
 
 ├──**src** folder
 
