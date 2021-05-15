@@ -46,11 +46,11 @@ export const fetchLiveEvents = ({ send }) => {
       localStorage.setItem('liveEvents', JSON.stringify(json));
       send(ACTIONS.FETCH_MATCHES_SUCCESS, json);
     })
-    .catch(function (error) {
-      console.log(error);
+    .catch(function (errorAPI) {
+      console.log(errorAPI);
       // hardcoded user friendly error message when no error handling requiremnts
-      const errorMessage = FETCH_MATCHES_ERROR_MESSAGE;
-      send(ACTIONS.FETCH_MATCHES_FAILURE, { errorMessage });
+      const error = FETCH_MATCHES_ERROR_MESSAGE;
+      send(ACTIONS.FETCH_MATCHES_FAILURE, { error });
     });
 };
 

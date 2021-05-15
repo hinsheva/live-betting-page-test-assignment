@@ -15,7 +15,9 @@ const LiveMatches = ({ current, send }: { current: string, send: Function }) => 
   const { liveEvents, error } = current.context;
   const { LOADING, LOADED, FAILED } = STATES;
 
-  getLiveEventsFromCache({ send });
+  useEffect(() => {
+    getLiveEventsFromCache({ send });
+  }, [liveEvents, error]);
 
   return (
     <div id="content">

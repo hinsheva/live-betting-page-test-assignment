@@ -30,6 +30,10 @@
 
 ## Project structure
 
+├──**public** folder
+
+├──├──**index.html** file
+
 ├──**src** folder
 
 ├──├──**css** folder
@@ -63,8 +67,6 @@
 ├──├──├──├──**utils.js** file
 
 ├──├──├──**constants.js** file
-
-├──├──**index.html** file
 
 ├──├──**index.js** file
 
