@@ -4,16 +4,15 @@ import image from '@rollup/plugin-image';
 import commonjs from 'rollup-plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
-
-const input = 'src/index.jsx';
+import replace from 'rollup-plugin-replace';
 
 const globals = {
   react: 'React',
 };
 
-const external = Object.keys(globals);
+const env = process.env.NODE_ENV;
 
-const extensions = ['.jsx', '.js', '.json'];
+const external = Object.keys(globals);
 
 const output = {
   globals,
@@ -30,37 +29,15 @@ const babelOptions = {
 
 export default [
   {
-    input,
+    input: 'src/index.jsx',
     external,
     output: {
       ...output,
-      file: 'dist/bundle.js',
+      file: env === 'production' ? 'build/bundle.min.js' : 'build/bundle.js',
     },
     plugins: [
       resolve({
-        extensions,
-        browser: true,
-      }),
-      image(),
-      commonjs({
-        include: /node_modules/,
-      }),
-      babel(babelOptions),
-      postcss({
-        extract: 'style.css',
-      }),
-    ],
-  },
-  {
-    input,
-    external,
-    output: {
-      ...output,
-      file: 'dist/bundle.min.js',
-    },
-    plugins: [
-      resolve({
-        extensions,
+        extensions: ['.jsx', '.js', '.json'],
         browser: true,
       }),
       image(),
@@ -70,11 +47,16 @@ export default [
       babel({
         ...babelOptions,
       }),
+      replace({
+        exclude: 'node_modules/**',
+        'process.env.NODE_ENV': JSON.stringify(env),
+      }),
+
       postcss({
         extract: 'style.min.css',
-        minimize: true,
+        minimize: env === 'production',
       }),
-      terser(),
+      env === 'production' && terser(),
     ],
   },
 ];
