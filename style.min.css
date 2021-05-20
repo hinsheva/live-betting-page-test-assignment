@@ -74,6 +74,10 @@ article aside img {
 	width: 220px;
 }
 
+/* .slider {
+	will-change: transform;
+} */
+
 .match, .error, .loading {
 	float: left;
     background: #222222;
@@ -81,7 +85,8 @@ article aside img {
     width: 100%;
     color: white;
 	padding-top: 15px;
-    text-align: center;
+	text-align: center;
+	will-change: transform;
 }
 
 .error div, .loading div {

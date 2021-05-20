@@ -27805,6 +27805,24 @@
 	  return obj;
 	}
 
+	function _extends() {
+	  _extends = Object.assign || function (target) {
+	    for (var i = 1; i < arguments.length; i++) {
+	      var source = arguments[i];
+
+	      for (var key in source) {
+	        if (Object.prototype.hasOwnProperty.call(source, key)) {
+	          target[key] = source[key];
+	        }
+	      }
+	    }
+
+	    return target;
+	  };
+
+	  return _extends.apply(this, arguments);
+	}
+
 	function _slicedToArray(arr, i) {
 	  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 	}
@@ -37805,7 +37823,9 @@
 	    className: "preamble"
 	  }, LIVE_MATCHES_P_TEXT), /*#__PURE__*/React__default.createElement(SideBlock, null), /*#__PURE__*/React__default.createElement("div", {
 	    id: "live-matches"
-	  }, /*#__PURE__*/React__default.createElement(Slider, carouselStyle, current.matches(LOADING) && /*#__PURE__*/React__default.createElement(Loading, null), current.matches(LOADED) && mappedLiveEventsData(liveEvents).map(function (match) {
+	  }, /*#__PURE__*/React__default.createElement(Slider, _extends({}, carouselStyle, {
+	    id: "slider"
+	  }), current.matches(LOADING) && /*#__PURE__*/React__default.createElement(Loading, null), current.matches(LOADED) && mappedLiveEventsData(liveEvents).map(function (match) {
 	    return /*#__PURE__*/React__default.createElement(Match, {
 	      key: match.id,
 	      liveEvent: match,
