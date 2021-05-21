@@ -1,14 +1,14 @@
 // @flow
 
 import React from 'react';
-import { ACTIONS, PLACE_BET_BUTTON_TEXT } from '../constants';
+import { PLACE_BET_BUTTON_TEXT } from '../constants';
 
-const Button = ({ send, liveEventUrl }: { send: Function, liveEventUrl: string }) => {
+const Button = ({ liveEventUrl }: { liveEventUrl: string }) => {
   return (
     <button
       className="bet-button"
       type="button"
-      onClick={() => send(ACTIONS.PLACE_BET, { liveEventUrl })}>
+      onClick={() => window.location.assign(liveEventUrl)}>
       {PLACE_BET_BUTTON_TEXT}
     </button>
   );

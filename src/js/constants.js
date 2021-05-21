@@ -7,16 +7,3 @@ export const LIVE_MATCHES_H1_TEXT = 'Live matches';
 export const LIVE_MATCHES_P_TEXT = 'Here is a list of matches that are live right now.';
 export const FETCH_MATCHES_ERROR_MESSAGE =
   'Match data is not available now. Please Try again later.';
-
-// State Machine
-export const STATES = {
-  LOADING: 'loading',
-  LOADED: 'loaded',
-  FAILED: 'failed',
-  REDIRECTED: 'redirected',
-};
-export const ACTIONS = {
-  FETCH_MATCHES_SUCCESS: 'liveMatchesSuccess',
-  FETCH_MATCHES_FAILURE: 'liveMatchesFailure',
-  PLACE_BET: 'placeBet',
-};

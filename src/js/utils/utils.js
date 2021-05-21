@@ -1,17 +1,13 @@
 import fetchJsonp from 'fetch-jsonp';
+import { useState, useEffect } from 'react';
 import basketball from '../../images/icons/basketball.png';
 import football from '../../images/icons/football.png';
 import tennis from '../../images/icons/tennis.png';
 import defaultIcon from '../../images/icons/defaultIcon.png';
-import {
-  LIVE_MATCHES_API,
-  MAX_CACHE_TIME,
-  ACTIONS,
-  FETCH_MATCHES_ERROR_MESSAGE,
-} from '../constants';
+import { LIVE_MATCHES_API, MAX_CACHE_TIME, FETCH_MATCHES_ERROR_MESSAGE } from '../constants';
 
-export const mappedLiveEventsData = (data) =>
-  data.map(
+export const mappedLiveEventsData = (data) => {
+  return data.map(
     ({
       event: { awayName, homeName, id, sport, start },
       liveData: { score: { away: awayScore, home: homeScore } = {} },
@@ -25,6 +21,7 @@ export const mappedLiveEventsData = (data) =>
       homeScore,
     }),
   );
+};
 
 export const carouselStyle = {
   dots: false,
@@ -36,33 +33,41 @@ export const carouselStyle = {
   autoplaySpeed: 3000,
 };
 
-export const fetchLiveEvents = ({ send }) => {
-  fetchJsonp(LIVE_MATCHES_API)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (json) {
-      localStorage.setItem('liveEventsCacheTimeStamp', Date.now());
-      localStorage.setItem('liveEvents', JSON.stringify(json));
-      send(ACTIONS.FETCH_MATCHES_SUCCESS, json);
-    })
-    .catch(function (errorAPI) {
-      console.log(errorAPI);
-      // hardcoded user friendly error message when no error handling requiremnts
-      const error = FETCH_MATCHES_ERROR_MESSAGE;
-      send(ACTIONS.FETCH_MATCHES_FAILURE, { error });
-    });
-};
-
-export const getLiveEventsFromCache = ({ send }) => {
-  const cacheTime = localStorage.getItem('liveEventsCacheTimeStamp');
-  const cacheData = localStorage.getItem('liveEvents');
+const getLiveEventsFromCache = (setEventsCallback, fetchEventsCallback) => {
+  const cacheTime = window.localStorage.getItem('liveEventsCacheTimeStamp');
+  const cacheData = window.localStorage.getItem('liveEvents');
   const outdatedCacheTime = Number(cacheTime) + MAX_CACHE_TIME;
   if (cacheTime && cacheData && Date.now() <= outdatedCacheTime) {
-    send('liveMatchesSuccess', JSON.parse(cacheData));
+    setEventsCallback(JSON.parse(cacheData));
   } else {
-    fetchLiveEvents({ send });
+    fetchEventsCallback();
   }
+};
+
+export const useFetchDataHook = () => {
+  const [liveEvents, setLiveEvents] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  useEffect(() => {
+    const fetchLiveEvents = () => {
+      fetchJsonp(LIVE_MATCHES_API)
+        .then((response) => response.json())
+        .then((json) => {
+          window.localStorage.setItem('liveEventsCacheTimeStamp', Date.now());
+          window.localStorage.setItem('liveEvents', JSON.stringify(json));
+          setLiveEvents(json);
+        })
+        .catch((errorAPI) => {
+          console.log(errorAPI);
+          // hardcoded user friendly error message when no error handling requiremnts
+          const error = FETCH_MATCHES_ERROR_MESSAGE;
+          setErrorMessage(error);
+        });
+    };
+    getLiveEventsFromCache(setLiveEvents, fetchLiveEvents);
+  }, []);
+
+  return [liveEvents, errorMessage];
 };
 
 export const formatDate = (dateString) => {

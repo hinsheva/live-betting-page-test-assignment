@@ -7,7 +7,6 @@ import Button from './Button';
 
 const Match = ({
   liveEvent,
-  send,
 }: {
   liveEvent: {
     start: string,
@@ -18,7 +17,6 @@ const Match = ({
     awayScore: string,
     homeScore: string,
   },
-  send: Function,
 }) => {
   const { start, awayName, homeName, id, sport, awayScore, homeScore } = liveEvent;
 
@@ -36,7 +34,7 @@ const Match = ({
         {homeName}
       </div>
       <div className="date">{eventDate}</div>
-      <Button send={send} liveEventUrl={liveEventUrl} />
+      <Button liveEventUrl={liveEventUrl} />
     </div>
   );
 };
