@@ -56,10 +56,6 @@
 
 ├──├──├──**components** folder with UI react components
 
-├──├──├──**machine** folder
-
-├──├──├──├──**liveMatchesMachine.js** file
-
 ├──├──├──**utils** folder
 
 ├──├──├──├──**tests** folder with unit and UI tests
