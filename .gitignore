@@ -11,3 +11,4 @@ junit.xml
 **/*junit-*.xml
 reports
 build
+node_modules

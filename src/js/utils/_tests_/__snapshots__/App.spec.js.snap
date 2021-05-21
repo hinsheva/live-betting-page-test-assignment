@@ -51,7 +51,7 @@ exports[`App should render LiveMatches component with children 1`] = `
         <a
           href="instructions/index.html"
         >
-          Navbar element
+          Navbar
         </a>
       </li>
     </ul>

@@ -9,8 +9,8 @@ import replace from 'rollup-plugin-replace';
 const globals = {
   react: 'React',
 };
-
 const env = process.env.NODE_ENV;
+const isProduction = env === 'production';
 
 const external = Object.keys(globals);
 
@@ -24,7 +24,6 @@ const babelOptions = {
   exclude: ['node_modules/**'],
   babelrc: true,
   externalHelpers: false,
-  sourceType: 'unambiguous',
 };
 
 export default [
@@ -33,9 +32,12 @@ export default [
     external,
     output: {
       ...output,
-      file: env === 'production' ? 'build/bundle.min.js' : 'build/bundle.js',
+      file: isProduction ? 'build/bundle.min.js' : 'build/bundle.js',
     },
     plugins: [
+      isProduction && replace({
+        ENVIRONMENT: JSON.stringify('production'),
+      }),
       resolve({
         extensions: ['.jsx', '.js', '.json'],
         browser: true,
@@ -47,16 +49,11 @@ export default [
       babel({
         ...babelOptions,
       }),
-      replace({
-        exclude: 'node_modules/**',
-        'process.env.NODE_ENV': JSON.stringify(env),
-      }),
-
       postcss({
-        extract: 'style.min.css',
-        minimize: env === 'production',
+        extract: isProduction ? 'style.min.css' : 'style.css',
+        minimize: isProduction,
       }),
-      env === 'production' && terser(),
+      isProduction && terser(),
     ],
   },
 ];
