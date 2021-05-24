@@ -3,7 +3,7 @@
 
 ## Technical details
 
-##### 1. The solution is built using front-end technologies only (JavaScript, HTML, CSS, React, xState).
+##### 1. The solution is built using front-end technologies only (JavaScript, HTML, CSS, React, xState(in initial version)).
 ##### 2. Main js code is located in /live-matches-assignment/src/js/ folder.
 ##### 3. UI react components located in /live-matches-assignment/src/components folder.
 ###### Note: main html has been splitted between react components for better tracability, readability and keeping the code clean, modularized and reusable in case of future extention.
